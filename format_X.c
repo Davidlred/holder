@@ -21,7 +21,7 @@ int format_X(va_list list, format_info info)
 	if (info.width_specifier)
 	{
 		length += get_int_length(k, 16);
-		if (lenght < info.width_specifier)
+		if (length < info.width_specifier)
 		{
 			length = info.width_specifier - length;
 			counter += length;

@@ -52,8 +52,8 @@ void print_space(int c);
 int _pow(int x, int y);
 
 format_info get_info(const char *format, va_list list);
-void fill_flag_info(specifier_info *info, char flag);
-int fill_width(specifier_info *info, const char *s, int i);
+void fill_flag_info(format_info *info, char flag);
+int fill_width(format_info *info, const char *s, int i);
 void init_specifier_info(format_info *info);
 
 int get_int_length(long int n, int radix);

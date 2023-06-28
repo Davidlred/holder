@@ -19,7 +19,7 @@ void convert_bin(int *counter, unsigned int num)
 
 	j = num / 2;
 	k = num % 2;
-	print_bin(counter, j);
+	convert_bin(counter, j);
 	*counter += _putchar(k + '0');
 }
 

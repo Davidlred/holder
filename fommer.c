@@ -1,4 +1,3 @@
-#include <stdarg.h>
 #include "main.h"
 /**
  * specifier_info - Sets value for specifier
@@ -65,7 +64,7 @@ int handle_format(const char *format, va_list list, format_info info)
 
 	if (action)
 	{
-		length += action(args, info);
+		length += action(list, info);
 	}
 	else
 	{

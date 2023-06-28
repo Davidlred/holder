@@ -13,13 +13,13 @@ int format_r(va_list list, format_info info)
 	int counter = 0;
 
 	(void)info;
-	r = va_arg(args, char *);
+	r = va_arg(list, char *);
 
 	while (r[length])
 		length++;
 
 	while (length > 0)
-		counter += _putchar(v[--length]);
+		counter += _putchar(r[--length]);
 	return (counter);
 }
 
