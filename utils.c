@@ -1,13 +1,11 @@
 #include <stdlib.h>
-#include <stdarg.h>
 #include "main.h"
 
 /**
- * get_specifier_action - Function to pick the appropriate action
+ * check_specifier - Function to pick the appropriate action
  * for a specifier.
  * @s: Specifier character
- * Return: Specifier action for the specifier s, NULL
- * if the specifier is not valid.
+ * Return: Specifier action
  */
 int (*check_specifier(char s))(va_list list, format_info info)
 {
@@ -42,26 +40,27 @@ int (*check_specifier(char s))(va_list list, format_info info)
 
 
 /**
- * getROT13char - Gets the ROT13 of a char.
+ * ROT13 - Gets the ROT13 of a char.
  * @c: Char to look up
- * Description: This function assumes any char
- * passed to it is an alpha.
  * Return: The ROT13 char.
  */
-char getROT13char(char c)
+char ROT13(char c)
 {
-	static const char *rot13Lower = "nopqrstuvwxyzabcdefghijklm";
-	static const char *rot13Upper = "NOPQRSTUVWXYZABCDEFGHIJKLM";
+	static const char *lowercase = "nopqrstuvwxyzabcdefghijklm";
+	static const char *uppercase = "NOPQRSTUVWXYZABCDEFGHIJKLM";
 
-	return (c < 91 ? rot13Upper[c - 65] : rot13Lower[c - 97]);
+	if (c < 91)
+		return (uppercase[c - 65]);
+	else
+		return (lowercase[c - 97]);
 }
 
 /**
- * init_specifier_info - Initializes the specifier info
+ * initialize_info - Initializes the specifier info
  * @info: pointer to the info to initialize
  * Return: Void
  */
-void init_specifier_info(format_info *info)
+void initialize_info(format_info *info)
 {
 	info->alt = 0;
 	info->space = '\0';
@@ -69,14 +68,21 @@ void init_specifier_info(format_info *info)
 	info->modifier = '\0';
 	info->length_specifier = '\0';
 	info->width_specifier = 0;
+	info->position = -1;
 }
 
 /**
- * is_digit - Checks if a char is digit
- * @c: Char to check
- * Return: 1 for success 
+ * print_max - prints the max of two digits
+ * @a: First int
+ * @b: Second int
+ * Return: The max int
  */
-int is_digit(char c)
+int print_max(int a, int b)
 {
-	return (c >= 48 && c <= 57);
+	if (a > b)
+		return (a);
+	else
+		return (b);
 }
+
+
