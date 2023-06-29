@@ -1,10 +1,10 @@
 #include "main.h"
 /**
- * fill_flag_info - Fill flag details
+ * information - Fill flag details
  * @info: The info object
  * @flag: a flag to swtich values
  */
-void fill_flag_info(format_info *info, char flag)
+void information(format_info *info, char flag)
 {
 	switch (flag)
 	{
@@ -22,34 +22,35 @@ void fill_flag_info(format_info *info, char flag)
 }
 
 /**
- * fill_width - Sets the width flag value
+ * width_flag - Sets the width flag value
  * @info: info specifier
  * @s: String to a format pointer
- * @i: string position
+ * @n: string position
  * Return: width
  */
-int fill_width(format_info *info, const char *s, int i)
+int width_flag(format_info *info, const char *s, int n)
 {
-	int c = 0, e;
-	int j = i;
+	int c = 0;
+	int i;
+	int j = n;
 	int w = 0;
 	int d;
 
-	while (is_digit(s[i]))
+	while (is_digit(s[n]))
 	{
 		c++;
-		i++;
+		n++;
 	}
 
-	i = j;
-	e = c;
-	while (is_digit(s[i]))
+	n = j;
+	i = c;
+	while (is_digit(s[n]))
 	{
 		d = s[i] - 48;
 		w += _pow(10, --c) * d;
-		i++;
+		n++;
 	}
 
 	info->width_specifier = w;
-	return (e);
+	return (i);
 }
