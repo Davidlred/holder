@@ -2,8 +2,7 @@
 #include "main.h"
 
 /**
- * check_specifier - Function to pick the appropriate action
- * for a specifier.
+ * check_specifier - Function to pick appropriate action
  * @s: Specifier character
  * Return: Specifier action
  */
