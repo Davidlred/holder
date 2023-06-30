@@ -1,4 +1,3 @@
-#include <stdarg.h>
 #include "main.h"
 /**
  * format_x - Function to handle the x specifier
@@ -20,21 +19,21 @@ int format_x(va_list list, format_info info)
 		n = va_arg(list, unsigned int);
 
 	if (info.alt && n > 0)
-		length += 2;
+		length = length + 2;
 
 	if (info.width_specifier)
 	{
-		length += get_int_length(n, 16);
+		length = length + _strlen(n, 16);
 		if (length < info.width_specifier)
 		{
 			length = info.width_specifier - length;
-			counter += length;
-			print_space(length);
+			counter = counter + length;
+			space_printer(length);
 		}
 	}
 
 	if (info.alt && n > 0)
-		counter += _puts("0x");
+		counter = counter + _puts("0x");
 
 	convert_hex(n, 1, &counter);
 	return (counter);

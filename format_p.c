@@ -20,7 +20,7 @@ int format_p(va_list list, format_info info)
 		return (_puts("(nil)"));
 
 	address = *((unsigned long int *)val);
-	count += _puts("0x");
+	count = count + _puts("0x");
 	convert_hex(address, 1, &count);
 	return (count);
 }

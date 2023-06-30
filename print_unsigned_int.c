@@ -1,10 +1,10 @@
 #include "main.h"
 /**
- * print_unsigned_int - prints an unsigned integer.
+ * print_unsigned_integer - prints an unsigned integer.
  * @n: integer to printout
  * Return: void
  */
-int print_unsigned_int(unsigned long int n)
+int print_unsigned_integer(unsigned long int n)
 {
 	int length = 0;
 
@@ -18,7 +18,7 @@ int print_unsigned_int(unsigned long int n)
 
 	if (n == 0)
 	{
-		char_len += _putchar(n + '0');
+		char_len = char_len + _putchar(n + '0');
 		return (char_len);
 	}
 
@@ -38,7 +38,7 @@ int print_unsigned_int(unsigned long int n)
 		}
 		dig = val % 10;
 		length--;
-		char_len += _putchar(dig + '0');
+		char_len = char_len + _putchar(dig + '0');
 	}
 	return (char_len);
 }

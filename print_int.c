@@ -5,7 +5,7 @@
  * @n: integer to be  printed
  * Return: void
  */
-int print_int(long int n)
+int print_integer(long int n)
 {
 	int dig;
 

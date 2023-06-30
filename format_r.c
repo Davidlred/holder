@@ -19,7 +19,7 @@ int format_r(va_list list, format_info info)
 		length++;
 
 	while (length > 0)
-		counter += _putchar(r[--length]);
+		counter = counter + _putchar(r[--length]);
 	return (counter);
 }
 

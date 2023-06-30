@@ -17,9 +17,9 @@ int format_R(va_list list, format_info info)
 	while (n[k])
 	{
 		if (_isalpha(n[k]))
-			counter += _putchar(getROT13char(n[k++]));
+			counter = counter + _putchar(ROT13(n[k++]));
 		else
-			counter += _putchar(n[k++]);
+			counter = counter + _putchar(n[k++]);
 	}
 	return (counter);
 }

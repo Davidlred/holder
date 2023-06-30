@@ -16,11 +16,11 @@ int format_c(va_list list, format_info info)
 		if (length < info.width_specifier)
 		{
 			length = info.width_specifier - length;
-			count += length;
-			print_space(length);
+			count = count + length;
+			space_printer(length);
 		}
 	}
 
-	count += _putchar(va_arg(list, int));
+	count = count + _putchar(va_arg(list, int));
 	return (count);
 }

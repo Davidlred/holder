@@ -17,20 +17,20 @@ int format_o(va_list list, format_info info)
 		n = va_arg(list, unsigned int);
 
 	if (info.alt && n > 0)
-		length += 1;
+		length = length + 1;
 	if (info.width_specifier)
 	{
-		length += get_int_length(n, 8);
+		length = length + get_int_length(n, 8);
 		if (length < info.width_specifier)
 		{
 			length = info.width_specifier - length;
-			count += length;
-			print_space(length);
+			count = count + length;
+			space_printer(length);
 		}
 	}
 
 	if (info.alt && n > 0)
-		count += _puts("0");
+		count = count + _puts("0");
 	convert_oct(n, &count);
 	return (count);
 }

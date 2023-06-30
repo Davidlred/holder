@@ -17,20 +17,20 @@ int format_X(va_list list, format_info info)
 		k = va_arg(list, unsigned int);
 
 	if (info.alt && k > 0)
-		length += 2;
+		length = length + 2;
 	if (info.width_specifier)
 	{
-		length += get_int_length(k, 16);
+		length = length + get_int_length(k, 16);
 		if (length < info.width_specifier)
 		{
 			length = info.width_specifier - length;
-			counter += length;
-			print_space(length);
+			counter = counter + length;
+			space_printer(length);
 		}
 	}
 
 	if (info.alt && k > 0)
-		counter += _puts("0X");
+		counter = counter + _puts("0X");
 	convert_hex(k, 0, &counter);
 	return (counter);
 }
