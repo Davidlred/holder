@@ -7,8 +7,8 @@
  */
 int format_percent(va_list list, format_info info)
 {
-	(void)info;
 	(void)list;
+	(void)info;
 
 	return (_putchar('%'));
 }
